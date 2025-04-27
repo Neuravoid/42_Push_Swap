@@ -96,10 +96,6 @@ ARG="3 2 1 6 5 8"; ./push_swap $ARG | wc -l
 - Fully functional `checker` program verifying your solutions.
 - Custom `get_next_line` implementation for reading from `stdin`.
 
-## Repository
-
-Find the full project here: [42_Push_Swap Repository](https://github.com/Neuravoid/42_Push_Swap.git)
-
 ## License
 
 This project is part of the 42 School curriculum and follows its academic honesty policy.
