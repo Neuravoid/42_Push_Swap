@@ -20,10 +20,14 @@ The fewer the moves, the better!
 - Input parsing and validation (including duplicate and non-integer detection).
 - Dynamic stack management using linked lists.
 - Optimized sorting algorithm:
-  - Specific small-stack algorithms (e.g., 2–5 elements).
-  - Efficient chunking method for larger stacks.
-- Memory management:
-  - Proper `malloc` and `free` usage to avoid memory leaks.
+  - Specific small-stack algorithms (e.g., 2-3-4 elements).
+  - Turkish algorithm for larger stacks.
+- Bonus: 
+  - **checker** program implemented.
+  - Reads operations from `stdin` using a custom-made `get_next_line`.
+  - Verifies if the sequence of operations correctly sorts the list.
+  - Handles memory management carefully, ensuring no leaks even in error cases.
+- Proper `malloc` and `free` usage to avoid memory leaks.
 - Norm-compliant and efficient code.
 
 ## Installation
@@ -36,7 +40,7 @@ The fewer the moves, the better!
 ### Clone the repository
 ```bash
 git clone https://github.com/Neuravoid/42_Push_Swap.git
-cd push_swap
+cd 42_Push_Swap
 ```
 
 ### Compile
@@ -44,10 +48,11 @@ cd push_swap
 make
 ```
 
-This will produce the `push_swap` executable.
+This will produce the `push_swap` and `checker` executables.
 
 ## Usage
 
+### push_swap
 ```bash
 ./push_swap [list of integers]
 ```
@@ -56,23 +61,44 @@ Example:
 ```bash
 ./push_swap 3 2 1 6 5 8
 ```
-
 The program will output a list of operations needed to sort the stack.
 
-You can test the number of operations using:
+### checker
+```bash
+./checker [list of integers]
+```
 
+You can manually input a sequence of operations (one per line), and when done, checker will output `OK` if sorted or `KO` if not.
+
+Example:
+```bash
+ARG="2 1 3"; ./checker $ARG
+sa
+(CTRL+D)
+```
+
+Alternatively, you can pipe instructions:
+```bash
+ARG="2 1 3"; ./push_swap $ARG | ./checker $ARG
+```
+
+### Test the number of moves
 ```bash
 ARG="3 2 1 6 5 8"; ./push_swap $ARG | wc -l
 ```
 
-Or check the correctness using your own checker script.
-
 ## Notes
 
 - Efficient for very small numbers of elements (under 5).
-- Advanced strategies applied for larger input sizes (chunking, greedy algorithm).
+- Advanced strategies applied for larger input sizes.
 - Proper error management (non-numeric input, integer overflows, duplicates).
 - No memory leaks (validated with `valgrind`).
+- Fully functional `checker` program verifying your solutions.
+- Custom `get_next_line` implementation for reading from `stdin`.
+
+## Repository
+
+Find the full project here: [42_Push_Swap Repository](https://github.com/Neuravoid/42_Push_Swap.git)
 
 ## License
 
